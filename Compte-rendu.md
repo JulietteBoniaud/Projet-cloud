@@ -79,3 +79,20 @@ Part2
     Passwoed : (c'est un secret)
 4 Refuser le truc (programme experience truc)
 5 Résumé -> Finish
+
+Part3
+
+1 Ajout d'une zone DNS cpe.local
+2 Ajout d'une entrée bacula-dir sur l'adresse IP du Vcenter
+
+### VSphere
+
+1 Cliquer sur action, et créer un nouveau centre de donnée.
+2 Dans le centre de donnée, clique sur action et créer un nouveau cluster
+
+:warning: Il vaut mieu éteindre toutes les VMs, avant de procéder à la suite
+
+3 Dans le cluster clisquer sur action, et ajouter les ESX :
+  adresse ip
+  root
+  mot de passe
