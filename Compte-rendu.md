@@ -68,3 +68,14 @@ Sur une machine win10 monter le cd et aller dans /vcsa-ui-installer/win32 et lan
     reste : default
     
 9 Resumé -> cliquer sur Finish et attendre ....
+
+Part2
+
+1 Next
+2 Synchro du temps avec ESXi et activer ssh
+3 Create new sso domain
+    Single Sign-On domain name : vsphere.local
+    username : administrator
+    Passwoed : (c'est un secret)
+4 Refuser le truc (programme experience truc)
+5 Résumé -> Finish
