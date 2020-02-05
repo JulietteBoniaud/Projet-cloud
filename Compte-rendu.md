@@ -19,6 +19,11 @@ cf. Sources
 
 ## Configuration
 
+
+### Reseaux
+
+Mettre les interfaces du switch avec les esxi en trunk native vlan *vlanManagement*
+
 ### Adressage
 
 Management : 10.0.0.0/24
@@ -130,11 +135,18 @@ configurer dans :
       autoriser réseau stockage uniquement
       valider
       
-      
+### Interfacer FreeNAS et ESXi
+
+#### Ajouter un adaptateur de stockage
+
+Sur vCenter, Cluster - IP ESXi - Configurer - Stockage - Adaptateur de stockage
+
 
       
 ## Sources
 
+
+Doc VMware : https://docs.vmware.com/en/VMware-vSphere/index.html
 Doc FreeNAS : https://www.ixsystems.com/documentation/freenas/11.3-RELEASE
     
 
