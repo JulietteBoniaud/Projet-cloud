@@ -92,7 +92,8 @@ Part3
 
 :warning: Il vaut mieu éteindre toutes les VMs, avant de procéder à la suite
 
-3 Dans le cluster clisquer sur action, et ajouter les ESX :
+3 Dans le cluster clisquer sur action, et ajouter les ESXi :
   adresse ip
-  root
-  mot de passe
+  Nom d'utilisateur ESXi
+  Mot de passe ESXi
+
