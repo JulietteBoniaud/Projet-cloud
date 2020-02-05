@@ -15,8 +15,7 @@ VM ubuntu desktop : clientesxi - Pa$$word
 
 ### PfSense
 
-Install source https://www.certilience.fr/2018/03/tutoriel-deploiement-pfsense-pare-feu-opensource/
-DNS source : https://www.arsouyes.org/blog/2019/23_DNS_Personnel/
+cf. Sources
 
 ## Configuration
 
@@ -95,7 +94,7 @@ Part3
 1 Cliquer sur action, et créer un nouveau centre de donnée.
 2 Dans le centre de donnée, clique sur action et créer un nouveau cluster
 
-:warning: Il vaut mieu éteindre toutes les VMs, avant de procéder à la suite
+:warning: Il vaut mieux éteindre toutes les VMs, avant de procéder à la suite
 
 3 Dans le cluster clisquer sur action, et ajouter les ESXi :
   adresse ip
@@ -132,7 +131,13 @@ configurer dans :
       valider
       
       
+
       
-Sources : https://www.ixsystems.com/documentation/freenas/11.3-RELEASE
+## Sources
+
+Doc FreeNAS : https://www.ixsystems.com/documentation/freenas/11.3-RELEASE
     
 
+Doc pfSense : 
+    Install pfSense https://www.certilience.fr/2018/03/tutoriel-deploiement-pfsense-pare-feu-opensource/
+    DNS source : https://www.arsouyes.org/blog/2019/23_DNS_Personnel/
