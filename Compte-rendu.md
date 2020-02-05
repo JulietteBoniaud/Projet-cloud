@@ -140,7 +140,16 @@ configurer dans :
 #### Ajouter un adaptateur de stockage
 
 Sur vCenter, Cluster - IP ESXi - Configurer - Stockage - Adaptateur de stockage
+Ajouter adaptateur iSCSI, mettre en cible l'ip du freeNAS (cf portail configuré avant)
+Tout mettre sur vlan stockage (s'assurer que tout ping)
 
+#### Ajout des des LUNs
+
+Cluster - Action - Stockage - Nouvelle banque de données
+    Type : VMFS
+Selectionner un des ESXi
+Selectionner le LUN 
+Recommencer pour les autres LUNs
 
       
 ## Sources
