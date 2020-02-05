@@ -25,10 +25,15 @@ DNS source : https://www.arsouyes.org/blog/2019/23_DNS_Personnel/
 Management : 10.0.0.0/24
 - TPME25 : 10.0.0.1/24
 - TPME27 : 10.0.0.2/24
+- vCenter: 10.0.0.3/24
+- FreeNAS: 10.0.0.4/24
+- Ad1	 : 10.0.0.5/24
+- Ad2    : 10.0.0.6/24
 - TPME26 : 10.0.0.10/24
 - gateway- pfsense : 10.0.0.254/24
 
 Stockage : 172.16.0.0/24
+- FreeNAS : 172.16.0.1/24
 
 
 Prod : 10.20.30.0/24
@@ -96,4 +101,38 @@ Part3
   adresse ip
   Nom d'utilisateur ESXi
   Mot de passe ESXi
+  
+### FreeNAS
+
+Lancer iso
+mettre 2 interfaces reseaux
+
+:warning: Mettre 2 disques à la vm (un pour os/install et 1 pour stockage) sinon pas possible de créer un volume
+Lancer l'installation, choisir l'espace d'install
+mot de passe root (Pa$$word)
+System de boot : via BIOS
+Swap : no swap
+attendre ....
+...
+remove cd et reboot
+
+aller sur interface web
+configurer dans :
+  System : langue et fuseau horaire
+  Réseau : ip des interfaces
+  Stockage : 
+    Volume - Créer un volume (Suivre la procédure)
+    Sur le volume (les 3 petits points) ajouter 2 zvol (en suivant la procédure)
+  Service :
+    Activer l'iscsi
+    En haut à droite "Wizard" pour la Configuration
+      nom
+      portail - nouveau - ip interface stockage
+      autoriser réseau stockage uniquement
+      valider
+      
+      
+      
+Sources : https://www.ixsystems.com/documentation/freenas/11.3-RELEASE
+    
 
