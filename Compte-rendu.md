@@ -27,8 +27,8 @@ Mettre les interfaces du switch avec les esxi en trunk native vlan *vlanManageme
 ### Adressage
 
 Management : 10.0.0.0/24
-- TPME25 : 10.0.0.1/24
-- TPME27 : 10.0.0.2/24
+- TPME25 : 10.0.0.1/24 + .7
+- TPME27 : 10.0.0.2/24 + .8
 - vCenter: 10.0.0.3/24
 - FreeNAS: 10.0.0.4/24
 - Ad1	 : 10.0.0.5/24
@@ -106,6 +106,9 @@ Part3
   Nom d'utilisateur ESXi
   Mot de passe ESXi
   
+#### HA
+  Activer la HA permet de surveiller l'activité des machines. Pour cela 
+
 ### FreeNAS
 
 Lancer iso
@@ -151,13 +154,20 @@ Selectionner un des ESXi
 Selectionner le LUN 
 Recommencer pour les autres LUNs
 
-      
+:warning: Pour utiliser le vMotion, il faut mettre le stockage des vm sur le stockage partagé créer sinon c'est caca (l'opération se fait à froid)
+
+### Update Manager
+Menu - Update Manager - Parametre - modifier - tu mets ce que tu veux t'es grand
+
+
 ## Sources
 
 
 Doc VMware : https://docs.vmware.com/en/VMware-vSphere/index.html
 Doc FreeNAS : https://www.ixsystems.com/documentation/freenas/11.3-RELEASE
-    
+
+vSphere HA : https://docs.vmware.com/fr/VMware-vSphere/6.7/com.vmware.vsphere.avail.doc/GUID-AC35EFDD-F8B7-4FAF-B946-6553D7BDBF31.html
+vSphere DRS: https://www.mchelgham.com/partie3-configuration-de-vsphere-ha-drs-evc-video/
 
 Doc pfSense : 
     Install pfSense https://www.certilience.fr/2018/03/tutoriel-deploiement-pfsense-pare-feu-opensource/
