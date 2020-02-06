@@ -159,6 +159,10 @@ Recommencer pour les autres LUNs
 ### Update Manager
 Menu - Update Manager - Parametre - modifier - tu mets ce que tu veux t'es grand
 
+L'update manger permet de mettre à jour les VMwareTools mais aussi les serveurs ESXi.
+Pour cela il faut d'abors importer une image d'ESXi, puis définir une ligne de base.
+VSphere va vérifier quelle ESX ont une versions inférieurs, et les mettre à jour.
+On peut procéder manuellement ou avec une tâche planifié.
 
 ## Sources
 
