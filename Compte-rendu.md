@@ -195,14 +195,23 @@ Tout mettre sur vlan stockage (s'assurer que tout ping)
 
 :warning: Pour utiliser le vMotion, il faut mettre le stockage des vms sur le stockage partagé (l'opération se fait à froid)
 
+### vMotion
+
+Permet de déplacer des VMs à chaud (en cours d'utilisation) entre les ESXi.
+
+Pour cela créer une interface réseau sur les ESXi et la paramétrer en vMotion (cocher la case)
+:warning: Les VMs doivent avoir un stockage réseau
+
 ### HA - High Availibility - Haute Disponibilité
-  
+
+> Nécéssite le vMotion
 Activer la HA permet de surveiller l'activité des machines et s'assurer la disponibilité de ces dernières.
 
 Dans la configuration du cluster d'ESXi, activer la haute disponibilité 
 
 ### DRS - Distributed Ressource Scheduler
 
+> Nécéssite le vMotion
 Le DRS permet de répartir la charge sur les différents ESXi.
 
 Si un des serveurs est plus chargé que l'autre (d'un point de vue RAM ou CPU) une ou plusieurs machines seront déplacées pour que tous les ESXi utilisent un pourcentage de ressources équilibrées.
