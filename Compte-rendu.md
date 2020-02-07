@@ -1,60 +1,91 @@
 # Projet cloud privé
 
-## 1 Installation
+## Prérequis
 
-### ESXi
+### Images
 
-Mettre la clé USB
-Boot
-Choisir le disque, la langue et le mot de passe (celui du sujet)
-Reboot quand demandé
+- Win2k12
+- Win10
+- vCenter
+- pfSense
+- freeNAS
+- VMware
 
-### Client
+### Matériel
 
-VM ubuntu desktop : clientesxi - Pa$$word
+Au minimum
+- 1 switch
+- 2 serveurs
+- 1 poste client
 
-### PfSense
+Dans l'idéal un troisième serveur serait bien
 
-cf. Sources
-
-## Configuration
-
-
-### Reseaux
+## Configuration réseau
 
 Mettre les interfaces du switch avec les esxi en trunk native vlan *vlanManagement*
 
 ### Adressage
 
-Management : 10.0.0.0/24
-- TPME25 : 10.0.0.1/24 + .7
-- TPME27 : 10.0.0.2/24 + .8
+*Les adresses utilisées sont en exemples* 
+
+Management : 10.0.0.0/24 - Réseau utilisé pour la configuration/gestion des serveurs, contient les serveurs et éventuellement une machine admin 
+> Les ESXi ont besoin de 2 interfaces dans ce réseau pour la haut disponibilité
+- ESX1 : 10.0.0.1/24
+	: 10.0.0.7/24
+- ESX2 : 10.0.0.2/24
+	: 10.0.0.8/24
 - vCenter: 10.0.0.3/24
 - FreeNAS: 10.0.0.4/24
 - Ad1	 : 10.0.0.5/24
 - Ad2    : 10.0.0.6/24
-- TPME26 : 10.0.0.10/24
-- gateway- pfsense : 10.0.0.254/24
+- pfsense : 10.0.0.254/24
 
-Stockage : 172.16.0.0/24
+Stockage : 172.16.0.0/24 - Réseau utilisé pour accéder au stockage des VMs 
 - FreeNAS : 172.16.0.1/24
+- ESX2   : 172.16.0.2/24
+- ESX1	  : 172.16.0.3/24
 
+Prod : 10.20.30.0/24 - Réseau de production/utilisation, pour les clients, les AD et la passerelle
+*adresses réparties en dhcp pour les clients*
+- AD1	: 10.20.30.200
+- AD2	: 10.20.30.201
+- Gateway : 10.20.30.254
 
-Prod : 10.20.30.0/24
+vMotion : 10.50.100.0/24 - Réseau pour transférer les VMs d'un ESXi à l'autre
+- ESX1	: 10.50.100.1
+- ESX2 : 10.50.100.2
 
+## Installation
 
-vMotion : 10.50.100/24
+### ESXi
 
-# Besoin
+Sur les serveurs
+Mettre la clé USB
+Boot
+Choisir le disque, la langue et le mot de passe (celui du sujet)
+Reboot quand demandé
 
-ISO :
-- Win2k12
-- Win10
-- vCenter
+### PfSense
+
+Sur le poste client, avec VirtualBox créer une VM base FreeBSD
+La démarrer avec l'ISO pfsense et suivre l'installation
+
+### Controlleur de domain
+
+Sur un des ESXi créer une VM avec une image Windows Server 2012
+Ajouter les rôles AD DNS 
+Configurer le DNS
+Ajouter quelques utilisateurs
+
+> Pour tester, installer une VM Windows10 et se connecter avec un compte de l'AD
 
 ### vCenter
 
+> Pour cela, il faut une vm client win10 et un DNS avec un nom de domaine qui fonctionne
+
 Sur une machine win10 monter le cd et aller dans /vcsa-ui-installer/win32 et lancer installer.exe
+
+Part 1 
 
 1 Choisir l'installation (deploy)
 2 accepter les conditions
@@ -72,13 +103,11 @@ Sur une machine win10 monter le cd et aller dans /vcsa-ui-installer/win32 et lan
     ip: 10.0.0.3
     netmask: /24
     gateway: 10.0.0.254
-    dns: 10.0.0.5
-    
-    reste : default
-    
-9 Resumé -> cliquer sur Finish et attendre ....
+    dns: 10.0.0.5    
+    reste : default    
+9 Resumé -> cliquer sur Finish et attendre
 
-Part2
+Part 2
 
 1 Next
 2 Synchro du temps avec ESXi et activer ssh
@@ -99,7 +128,7 @@ Part3
 1 Cliquer sur action, et créer un nouveau centre de donnée.
 2 Dans le centre de donnée, clique sur action et créer un nouveau cluster
 
-:warning: Il vaut mieux éteindre toutes les VMs, avant de procéder à la suite
+:warning: Il est conseillé éteindre toutes les VMs, avant de procéder à la suite
 
 3 Dans le cluster clisquer sur action, et ajouter les ESXi :
   adresse ip
