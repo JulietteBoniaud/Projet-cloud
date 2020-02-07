@@ -91,20 +91,20 @@ Part 1
 2. accepter les conditions
 3. type de déploiment : Embedded Platform Service Controller
 4. ESXi : 10.0.0.1
-    Port HTTPS: 443 (default)
-    username : root
-    password : (ESXi root password)
+    ...Port HTTPS: 443 (default)
+...username : root
+      password : (ESXi root password)
 5. VMname : vCenter
-    root password : (comme on veut)
+      root password : (comme on veut)
 6. Deployment size : tiny (default)
-    Storage size : (default)
+      Storage size : (default)
 7. Choix du stockage (default)
 8. Network settings
-    ip: 10.0.0.3
-    netmask: /24
-    gateway: 10.0.0.254
-    dns: 10.0.0.5    
-    reste : default    
+      ip: 10.0.0.3
+      netmask: /24
+      gateway: 10.0.0.254
+      dns: 10.0.0.5    
+      reste : default    
 9. Resumé -> cliquer sur Finish et attendre
 
 Part 2
