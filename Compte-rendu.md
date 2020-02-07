@@ -91,13 +91,13 @@ Part 1
 2. accepter les conditions
 3. type de déploiment : Embedded Platform Service Controller
 4. ESXi : 10.0.0.1
-  Port HTTPS: 443 (default)
-  username : root
-  password : (ESXi root password)
+    Port HTTPS: 443 (default)
+    username : root
+    password : (ESXi root password)
 5. VMname : vCenter
-  root password : (comme on veut)
+    root password : (comme on veut)
 6. Deployment size : tiny (default)
-  Storage size : (default)
+    Storage size : (default)
 7. Choix du stockage (default)
 8. Network settings
     ip: 10.0.0.3
@@ -109,19 +109,19 @@ Part 1
 
 Part 2
 
-1 Next
-2 Synchro du temps avec ESXi et activer ssh
-3 Create new sso domain
+1. Next
+2. Synchro du temps avec ESXi et activer ssh
+3. Create new sso domain
     Single Sign-On domain name : vsphere.local
     username : administrator
     Passwoed : (c'est un secret)
-4 Refuser le truc (programme experience truc)
-5 Résumé -> Finish
+4. Refuser le truc (programme experience truc)
+5. Résumé -> Finish
 
 Part3
 
-1 Ajout d'une zone DNS cpe.local
-2 Ajout d'une entrée bacula-dir sur l'adresse IP du Vcenter
+1. Ajout d'une zone DNS cpe.local
+2. Ajout d'une entrée bacula-dir sur l'adresse IP du Vcenter
 
 ### VSphere
 
