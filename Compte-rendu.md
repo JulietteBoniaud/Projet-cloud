@@ -8,7 +8,7 @@
 - Win10
 - vCenter
 - pfSense
-- freeNAS
+- FreeNAS
 - VMware
 
 ### Matériel
