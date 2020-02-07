@@ -1,6 +1,5 @@
 # Projet-cloud
 
-Jean-Baptiste Monnin
-Juliette Boniaud
+Jean-Baptiste Monnin et Juliette Boniaud
 
 Projet module Cloud/Virtualisation
