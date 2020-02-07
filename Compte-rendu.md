@@ -91,10 +91,9 @@ Part 1
 2. accepter les conditions
 3. type de déploiment : Embedded Platform Service Controller
 4. ESXi : 10.0.0.1
-
-⋅⋅⋅Port HTTPS: 443 (default)
-⋅⋅⋅username : root
-⋅⋅⋅password : (ESXi root password)
+Port HTTPS: 443 (default)
+username : root
+password : (ESXi root password)
 
 5. VMname : vCenter
       root password : (comme on veut)
