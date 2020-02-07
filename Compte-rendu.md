@@ -151,49 +151,54 @@ Lancer iso
 Mettre 2 interfaces reseaux, une dans le réseau Management et une dans celui du stockage
 
 :warning: Mettre 2 disques à la vm (un pour os/install et 1 pour stockage) sinon pas possible de créer un volume
-Lancer l'installation, choisir l'espace d'install
 
-Mot de passe root (Pa$$word)
-System de boot : via BIOS
-Swap : no swap
-Remove cd et reboot
+Lancer l'installation, choisir l'espace d'installation
+
+- Mot de passe root (Pa$$word)
+- System de boot : via BIOS
+- Swap : no swap
+- Remove cd et reboot
 
 Aller sur l'interface web
+
 Configurer dans :
-  System : langue et fuseau horaire
-  Réseau : ip des interfaces
-  Stockage : 
-    Volume - Créer un volume (Suivre la procédure)
-    Sur le volume (les 3 petits points) ajouter 2 zvol (en suivant la procédure)
-  Service :
-    Activer l'ISCSI
-    En haut à droite "Wizard" pour la Configuration
-      nom
-      portail - nouveau - ip interface stockage
-      autoriser réseau stockage uniquement
-      valider
+- System : langue et fuseau horaire
+- Réseau : ip des interfaces
+- Stockage : 
+	- Volume - Créer un volume (Suivre la procédure)
+    	- Sur le volume (les 3 petits points) ajouter 2 zvol (en suivant la procédure)
+- Service :
+	- Activer l'ISCSI
+    	- En haut à droite "Wizard" pour la Configuration
+      		- nom
+      		- portail - nouveau - ip interface stockage
+      		- autoriser réseau stockage uniquement
+      		- valider
       
 ### Interfacer FreeNAS et ESXi
 
 #### Ajouter un adaptateur de stockage
 
 Sur vCenter, Cluster - IP ESXi - Configurer - Stockage - Adaptateur de stockage
+
 Ajouter un adaptateur iSCSI, mettre en cible l'ip du freeNAS (cf portail configuré avant)
+
 Tout mettre sur vlan stockage (s'assurer que tout ping)
 
 #### Ajout des LUNs
 
-Cluster - Action - Stockage - Nouvelle banque de données
-    Type : VMFS
-Selectionner un des ESXi
-Selectionner le LUN 
-Recommencer pour les autres LUNs
+- Cluster - Action - Stockage - Nouvelle banque de données
+	- Type : VMFS
+- Selectionner un des ESXi
+- Selectionner le LUN 
+- Recommencer pour les autres LUNs
 
 :warning: Pour utiliser le vMotion, il faut mettre le stockage des vms sur le stockage partagé (l'opération se fait à froid)
 
 ### HA - High Availibility - Haute Disponibilité
   
 Activer la HA permet de surveiller l'activité des machines et s'assurer la disponibilité de ces derniers.
+
 Dans la configuration du cluster d'ESXi, activer la haute disponibilité 
 
 ### Update Manager
