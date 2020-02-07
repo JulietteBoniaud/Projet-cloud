@@ -197,17 +197,26 @@ Tout mettre sur vlan stockage (s'assurer que tout ping)
 
 ### HA - High Availibility - Haute Disponibilité
   
-Activer la HA permet de surveiller l'activité des machines et s'assurer la disponibilité de ces derniers.
+Activer la HA permet de surveiller l'activité des machines et s'assurer la disponibilité de ces dernières.
 
 Dans la configuration du cluster d'ESXi, activer la haute disponibilité 
+
+### DRS - Distributed Ressource Scheduler
+
+Le DRS permet de répartir la charge sur les différents ESXi.
+
+Si un des serveurs est plus chargé que l'autre (d'un point de vue RAM ou CPU) une ou plusieurs machines seront déplacées pour que tous les ESXi utilisent un pourcentage de ressources équilibrées.
 
 ### Update Manager
 
 Menu - Update Manager - Parametre - modifier 
 
 L'update manager permet de mettre à jour les VMwareTools mais aussi les serveurs ESXi.
+
 Pour cela il faut d'abords importer une image d'ESXi, puis définir une ligne de base.
+
 VSphere va vérifier quels ESXi ont une versions inférieurs, et les mettre à jour.
+
 On peut procéder manuellement ou avec une tâche planifiée.
 
 ## Sources
